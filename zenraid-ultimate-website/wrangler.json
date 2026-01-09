@@ -10,7 +10,7 @@
         {
             "binding": "DB",
             "database_name": "zenraid-subscribers",
-            "database_id": "YOUR_DATABASE_ID_HERE"
+            "database_id": "76ae44c6-1fc8-48e5-ad08-bc34565dd1f0"
         }
     ],
     "observability": {

@@ -136,8 +136,6 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Unobserve after animation
-                // fadeObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -416,12 +414,52 @@
 
     // ============================================
     // SPOTLIGHT EFFECT FOR RANK CARDS
+    // Each tier has its own color!
     // ============================================
     
     function initSpotlightEffect() {
         const rankCards = document.querySelectorAll('.rank-card-full, .rank-card');
         
+        // Tier color mapping
+        const tierColors = {
+            5: 'rgba(255, 215, 0, 0.4)',      // Gold
+            4: 'rgba(179, 102, 255, 0.4)',    // Purple
+            3: 'rgba(0, 150, 255, 0.4)',      // Blue
+            2: 'rgba(0, 255, 136, 0.4)',      // Green
+            1: 'rgba(136, 136, 136, 0.3)'     // Gray
+        };
+        
         rankCards.forEach(card => {
+            // Find which tier this card belongs to
+            let tierNumber = 1; // Default
+            
+            // Check parent elements for tier class
+            let parent = card.parentElement;
+            while (parent) {
+                if (parent.classList) {
+                    for (let i = 5; i >= 1; i--) {
+                        if (parent.classList.contains(`tier-${i}`)) {
+                            tierNumber = i;
+                            break;
+                        }
+                    }
+                }
+                parent = parent.parentElement;
+            }
+            
+            // Also check the card itself
+            for (let i = 5; i >= 1; i--) {
+                if (card.classList.contains(`tier-${i}`)) {
+                    tierNumber = i;
+                    break;
+                }
+            }
+            
+            // Set the spotlight color for this card
+            const spotlightColor = tierColors[tierNumber];
+            card.style.setProperty('--spotlight-color', spotlightColor);
+            
+            // Mouse move handler
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -431,9 +469,10 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
             
+            // Reset on mouse leave - move spotlight off-screen
             card.addEventListener('mouseleave', () => {
-                card.style.setProperty('--mouse-x', '50%');
-                card.style.setProperty('--mouse-y', '50%');
+                card.style.setProperty('--mouse-x', '-1000px');
+                card.style.setProperty('--mouse-y', '-1000px');
             });
         });
     }

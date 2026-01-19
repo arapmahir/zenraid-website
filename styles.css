@@ -1054,6 +1054,10 @@ body {
     flex-wrap: wrap;
 }
 
+/* ============================================
+   RANK CARDS WITH SPOTLIGHT EFFECT
+   ============================================ */
+
 .rank-card {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1065,9 +1069,32 @@ body {
     transition: all var(--transition-base);
 }
 
+/* Spotlight effect for rank cards */
+.rank-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 215, 0, 0.15),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rank-card:hover::before {
+    opacity: 1;
+}
+
 .rank-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(0, 229, 255, 0.3);
+    border-color: rgba(255, 215, 0, 0.3);
 }
 
 .rank-glow {
@@ -1090,6 +1117,8 @@ body {
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
     letter-spacing: 4px;
+    position: relative;
+    z-index: 2;
 }
 
 .tier-5 .rank-insignia { color: var(--tier-5); text-shadow: 0 0 10px var(--tier-5-glow); }
@@ -1103,11 +1132,15 @@ body {
     margin-bottom: 0.25rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
 }
 
 .rank-card p {
     color: var(--text-muted);
     font-size: 0.85rem;
+    position: relative;
+    z-index: 2;
 }
 
 .ranks-more {
@@ -1756,6 +1789,10 @@ footer {
     grid-template-columns: repeat(4, 1fr);
 }
 
+/* ============================================
+   RANK CARD FULL - WITH SPOTLIGHT EFFECT
+   ============================================ */
+
 .rank-card-full {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1764,9 +1801,73 @@ footer {
     transition: all var(--transition-base);
 }
 
+/* Spotlight glow effect - follows mouse */
+.rank-card-full::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 215, 0, 0.2),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rank-card-full:hover::before {
+    opacity: 1;
+}
+
 .rank-card-full:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
+}
+
+/* Tier-specific spotlight colors */
+.tier-5 .rank-card-full::before {
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 215, 0, 0.25),
+        transparent 40%
+    );
+}
+
+.tier-4 .rank-card-full::before {
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(179, 102, 255, 0.25),
+        transparent 40%
+    );
+}
+
+.tier-3 .rank-card-full::before {
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 150, 255, 0.25),
+        transparent 40%
+    );
+}
+
+.tier-2 .rank-card-full::before {
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 255, 136, 0.25),
+        transparent 40%
+    );
+}
+
+.tier-1 .rank-card-full::before {
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(136, 136, 136, 0.2),
+        transparent 40%
+    );
 }
 
 .rank-legendary {
@@ -1803,9 +1904,11 @@ footer {
     opacity: 0.5;
 }
 
+/* Make sure content stays above the spotlight */
 .rank-card-content {
     position: relative;
     padding: 2rem;
+    z-index: 2;
 }
 
 .rank-insignia-large {

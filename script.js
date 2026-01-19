@@ -415,6 +415,32 @@
     preloadImages();
 
     // ============================================
+    // SPOTLIGHT EFFECT FOR RANK CARDS
+    // ============================================
+    
+    function initSpotlightEffect() {
+        const rankCards = document.querySelectorAll('.rank-card-full, .rank-card');
+        
+        rankCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+            });
+        });
+    }
+    
+    initSpotlightEffect();
+
+    // ============================================
     // CONSOLE EASTER EGG
     // ============================================
     

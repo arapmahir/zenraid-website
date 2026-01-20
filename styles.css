@@ -1069,7 +1069,7 @@ body {
     transition: all var(--transition-base);
 }
 
-/* Spotlight effect for rank cards */
+/* Spotlight effect - ONLY shows on hover */
 .rank-card::before {
     content: '';
     position: absolute;
@@ -1078,24 +1078,47 @@ body {
     width: 100%;
     height: 100%;
     background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 215, 0, 0.15),
+        350px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
+        var(--spotlight-color, rgba(255, 215, 0, 0.2)),
         transparent 40%
     );
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     pointer-events: none;
     z-index: 1;
 }
 
+/* Show spotlight ONLY on hover */
 .rank-card:hover::before {
     opacity: 1;
 }
 
 .rank-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 215, 0, 0.3);
 }
+
+/* Tier-specific hover border colors */
+.tier-5 .rank-card:hover {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.tier-4 .rank-card:hover {
+    border-color: rgba(179, 102, 255, 0.4);
+}
+
+.tier-3 .rank-card:hover {
+    border-color: rgba(0, 150, 255, 0.4);
+}
+
+.tier-2 .rank-card:hover {
+    border-color: rgba(0, 255, 136, 0.4);
+}
+
+.tier-1 .rank-card:hover {
+    border-color: rgba(136, 136, 136, 0.3);
+}
+    
+  /* border-color: rgba(255, 215, 0, 0.3); */
 
 .rank-glow {
     position: absolute;

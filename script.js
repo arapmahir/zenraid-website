@@ -417,24 +417,41 @@
     // Each tier has its own color!
     // ============================================
     
-    function initSpotlightEffect() {
-        const rankCards = document.querySelectorAll('.rank-card-full, .rank-card');
+function initSpotlightEffect() {
+    const rankCards = document.querySelectorAll('.rank-card-full, .rank-card');
+    
+    // Tier color mapping - vibrant colors for spotlight
+    const tierColors = {
+        5: 'rgba(255, 215, 0, 0.35)',      // Gold
+        4: 'rgba(179, 102, 255, 0.35)',    // Purple
+        3: 'rgba(0, 150, 255, 0.35)',      // Blue
+        2: 'rgba(0, 255, 136, 0.35)',      // Green
+        1: 'rgba(136, 136, 136, 0.25)'     // Gray
+    };
+    
+    rankCards.forEach(card => {
+        // Find which tier this card belongs to by checking parent .tier-section
+        let tierNumber = 1; // Default
         
-        // Tier color mapping
-        const tierColors = {
-            5: 'rgba(255, 215, 0, 0.4)',      // Gold
-            4: 'rgba(179, 102, 255, 0.4)',    // Purple
-            3: 'rgba(0, 150, 255, 0.4)',      // Blue
-            2: 'rgba(0, 255, 136, 0.4)',      // Green
-            1: 'rgba(136, 136, 136, 0.3)'     // Gray
-        };
+        // Look for parent with tier-section class
+        let parent = card.parentElement;
+        while (parent && !parent.classList.contains('tier-section')) {
+            parent = parent.parentElement;
+        }
         
-        rankCards.forEach(card => {
-            // Find which tier this card belongs to
-            let tierNumber = 1; // Default
-            
-            // Check parent elements for tier class
-            let parent = card.parentElement;
+        // If we found a tier-section, check which tier it is
+        if (parent && parent.classList.contains('tier-section')) {
+            for (let i = 5; i >= 1; i--) {
+                if (parent.classList.contains(`tier-${i}`)) {
+                    tierNumber = i;
+                    break;
+                }
+            }
+        }
+        
+        // Fallback: check the card's own parent tier-* classes
+        if (tierNumber === 1) {
+            parent = card.parentElement;
             while (parent) {
                 if (parent.classList) {
                     for (let i = 5; i >= 1; i--) {
@@ -444,40 +461,40 @@
                         }
                     }
                 }
+                if (tierNumber !== 1) break;
                 parent = parent.parentElement;
             }
+        }
+        
+        // Set the spotlight color for this card
+        const spotlightColor = tierColors[tierNumber];
+        card.style.setProperty('--spotlight-color', spotlightColor);
+        card.dataset.tier = tierNumber; // Store for debugging
+        
+        // Initialize mouse position OFF-SCREEN so no glow appears by default
+        card.style.setProperty('--mouse-x', '-1000px');
+        card.style.setProperty('--mouse-y', '-1000px');
+        
+        // Mouse move handler - update spotlight position
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             
-            // Also check the card itself
-            for (let i = 5; i >= 1; i--) {
-                if (card.classList.contains(`tier-${i}`)) {
-                    tierNumber = i;
-                    break;
-                }
-            }
-            
-            // Set the spotlight color for this card
-            const spotlightColor = tierColors[tierNumber];
-            card.style.setProperty('--spotlight-color', spotlightColor);
-            
-            // Mouse move handler
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-            
-            // Reset on mouse leave - move spotlight off-screen
-            card.addEventListener('mouseleave', () => {
-                card.style.setProperty('--mouse-x', '-1000px');
-                card.style.setProperty('--mouse-y', '-1000px');
-            });
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
-    }
-    
-    initSpotlightEffect();
+        
+        // Reset on mouse leave - move spotlight OFF-SCREEN
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--mouse-x', '-1000px');
+            card.style.setProperty('--mouse-y', '-1000px');
+        });
+    });
+}
+
+// Initialize spotlight effect
+initSpotlightEffect();
 
     // ============================================
     // CONSOLE EASTER EGG

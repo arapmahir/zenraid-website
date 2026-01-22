@@ -1,6 +1,6 @@
 /* ============================================
-   ZENRAID ULTIMATE - CSS STYLES
-   Futuristic Tactical Gaming Aesthetic
+   ZENRAID ULTIMATE - CSS STYLES (FIXED VERSION)
+   Spotlight Bug Fixes Applied
    ============================================ */
 
 /* CSS Variables */
@@ -1055,7 +1055,7 @@ body {
 }
 
 /* ============================================
-   RANK CARDS WITH SPOTLIGHT EFFECT
+   RANK CARDS WITH SPOTLIGHT EFFECT - FIXED
    ============================================ */
 
 .rank-card {
@@ -1117,8 +1117,6 @@ body {
 .tier-1 .rank-card:hover {
     border-color: rgba(136, 136, 136, 0.3);
 }
-    
-  /* border-color: rgba(255, 215, 0, 0.3); */
 
 .rank-glow {
     position: absolute;
@@ -1813,7 +1811,7 @@ footer {
 }
 
 /* ============================================
-   RANK CARD FULL - WITH SPOTLIGHT EFFECT
+   RANK CARD FULL - WITH SPOTLIGHT EFFECT - FIXED
    ============================================ */
 
 .rank-card-full {
@@ -1824,7 +1822,7 @@ footer {
     transition: all var(--transition-base);
 }
 
-/* Spotlight glow effect - follows mouse */
+/* Spotlight glow effect - follows mouse, ONLY visible on hover */
 .rank-card-full::before {
     content: '';
     position: absolute;
@@ -1833,12 +1831,12 @@ footer {
     width: 100%;
     height: 100%;
     background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 215, 0, 0.2),
+        400px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
+        var(--spotlight-color, rgba(255, 215, 0, 0.25)),
         transparent 40%
     );
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     pointer-events: none;
     z-index: 1;
 }
@@ -1852,52 +1850,34 @@ footer {
     box-shadow: var(--shadow-hover);
 }
 
-/* Tier-specific spotlight colors */
-.tier-5 .rank-card-full::before {
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 215, 0, 0.25),
-        transparent 40%
-    );
+/* Tier-specific spotlight colors and hover borders */
+.tier-5 .rank-card-full:hover {
+    border-color: rgba(255, 215, 0, 0.5);
 }
 
-.tier-4 .rank-card-full::before {
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(179, 102, 255, 0.25),
-        transparent 40%
-    );
+.tier-4 .rank-card-full:hover {
+    border-color: rgba(179, 102, 255, 0.5);
 }
 
-.tier-3 .rank-card-full::before {
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 150, 255, 0.25),
-        transparent 40%
-    );
+.tier-3 .rank-card-full:hover {
+    border-color: rgba(0, 150, 255, 0.5);
 }
 
-.tier-2 .rank-card-full::before {
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 255, 136, 0.25),
-        transparent 40%
-    );
+.tier-2 .rank-card-full:hover {
+    border-color: rgba(0, 255, 136, 0.5);
 }
 
-.tier-1 .rank-card-full::before {
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(136, 136, 136, 0.2),
-        transparent 40%
-    );
+.tier-1 .rank-card-full:hover {
+    border-color: rgba(136, 136, 136, 0.4);
 }
 
+/* Rarity-based border colors (default state) */
 .rank-legendary {
-    border-color: rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.2);
 }
 
 .rank-legendary:hover {
+    border-color: rgba(255, 215, 0, 0.5);
     box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
 }
 
@@ -1905,26 +1885,37 @@ footer {
     border-color: rgba(179, 102, 255, 0.2);
 }
 
+.rank-epic:hover {
+    border-color: rgba(179, 102, 255, 0.5);
+}
+
 .rank-rare {
     border-color: rgba(0, 150, 255, 0.2);
+}
+
+.rank-rare:hover {
+    border-color: rgba(0, 150, 255, 0.5);
 }
 
 .rank-uncommon {
     border-color: rgba(0, 255, 136, 0.2);
 }
 
+.rank-uncommon:hover {
+    border-color: rgba(0, 255, 136, 0.5);
+}
+
 .rank-common {
     border-color: rgba(136, 136, 136, 0.2);
 }
 
+.rank-common:hover {
+    border-color: rgba(136, 136, 136, 0.4);
+}
+
+/* Remove old rank-card-glow if it exists */
 .rank-card-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at top center, var(--tier-5-glow) 0%, transparent 60%);
-    opacity: 0.5;
+    display: none;
 }
 
 /* Make sure content stays above the spotlight */

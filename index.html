@@ -4,56 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenRaid Rank System | Player Progression Levels</title>
+
+    <!-- PRIMARY SEO META TAGS -->
+    <title>ZenRaid | Electric Water Blasters with Smart Hit Detection</title>
     <meta name="description"
-        content="ZenRaid's 14-level player ranking system. From beginner to top player, see how you can progress through organized play.">
+        content="ZenRaid: Electric water blasters with smart vests that track hits. Team-based outdoor games with app scoring. Coming to Kickstarter 2026.">
     <meta name="keywords"
-        content="ZenRaid ranks, player levels, gaming hierarchy, water combat, outdoor gaming">
-    <link rel="canonical" href="https://www.zenraid.com/ranks">
+        content="electric water gun, water blaster, smart water gun, outdoor gaming, water gun with hit detection, family outdoor games, laser tag alternative">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://www.zenraid.com/">
+    <meta name="author" content="ZenRaid OÜ">
 
-    <!-- Open Graph -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.zenraid.com/ranks">
-    <meta property="og:title" content="ZenRaid Rank System | Player Progression">
+    <meta property="og:url" content="https://www.zenraid.com/">
+    <meta property="og:title" content="ZenRaid | Electric Water Blasters with Smart Hit Detection">
     <meta property="og:description"
-        content="14 ranks across 5 levels. Start as a beginner, work your way up.">
-    <meta property="og:image" content="https://www.zenraid.com/assets/zenraid_og_ranks.png">
+        content="Electric water blasters with smart vests and app scoring. Team-based outdoor fun for all ages. Kickstarter 2026.">
+    <meta property="og:image" content="https://www.zenraid.com/assets/zenraid_og_image.png">
+    <meta property="og:site_name" content="ZenRaid">
 
-    <!-- Fonts -->
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zenraid">
+    <meta name="twitter:title" content="ZenRaid | Electric Water Blasters with Smart Hit Detection">
+    <meta name="twitter:description"
+        content="Electric water blasters with smart vests and app scoring. Kickstarter 2026.">
+    <meta name="twitter:image" content="https://www.zenraid.com/assets/zenraid_og_image.png">
+
+    <!-- STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ZenRaid",
+        "legalName": "ZenRaid OÜ",
+        "url": "https://www.zenraid.com",
+        "logo": "https://www.zenraid.com/assets/zenraid_logo.png",
+        "description": "Electric water blasters with smart vests, hit detection, and mobile app scoring for team-based outdoor games.",
+        "foundingDate": "2025",
+        "founders": [{"@type": "Person", "name": "Mahir Arap"}],
+        "address": {"@type": "PostalAddress", "addressCountry": "EE"}
+    }
+    </script>
+
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicons -->
+    <!-- FAVICONS -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#0A0A0F">
 
-    <!-- Styles -->
+    <!-- STYLES -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="ranks-page">
+<body>
     <!-- Animated Background -->
     <div class="bg-grid"></div>
     <div class="bg-gradient-overlay"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
+            <a href="/" class="nav-logo" aria-label="ZenRaid Home">
                 <img src="assets/zenraid_logo.png" alt="" width="40" height="40">
                 <span>ZenRaid</span>
             </a>
             <ul class="nav-links">
-                <li><a href="/#products">Products</a></li>
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#gameplay">How to Play</a></li>
-                <li><a href="/ranks.html" class="active">Ranks</a></li>
-                <li><a href="/#team">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gameplay">How to Play</a></li>
+                <li><a href="#ranks">Ranks</a></li>
+                <li><a href="#team">About</a></li>
             </ul>
-            <a href="/#newsletter" class="nav-cta">Get Updates</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <a href="#newsletter" class="nav-cta">Get Updates</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -62,462 +97,504 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
             <span></span>
             <span></span>
         </button>
-        <a href="/#products">Products</a>
-        <a href="/#features">Features</a>
-        <a href="/#gameplay">How to Play</a>
-        <a href="/ranks.html">Ranks</a>
-        <a href="/#team">About</a>
-        <a href="/#newsletter" class="mobile-cta">Get Updates</a>
+        <a href="#products">Products</a>
+        <a href="#features">Features</a>
+        <a href="#gameplay">How to Play</a>
+        <a href="#ranks">Ranks</a>
+        <a href="#team">About</a>
+        <a href="#newsletter" class="mobile-cta">Get Updates</a>
     </div>
 
-    <main>
-        <!-- Ranks Hero -->
-        <section class="ranks-hero">
-            <div class="ranks-hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    Player Progression
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Coming to Kickstarter 2026
+                    </div>
+                    <h1 id="hero-title">Water Games <span class="text-gradient">Upgraded</span></h1>
+                    <p class="hero-description">
+                        Electric water blasters that actually keep score. Smart vests detect when you're hit, 
+                        and an app tracks everything. Play as teams, see live scores, and settle who really won.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#newsletter" class="btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" aria-hidden="true">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                            Get Early Access
+                        </a>
+                        <a href="#products" class="btn-secondary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <polygon points="10,8 16,12 10,16" fill="currentColor" />
+                            </svg>
+                            See Products
+                        </a>
+                    </div>
                 </div>
-                <h1>ZenRaid <span class="text-gradient">Ranks</span></h1>
-                <p>14 ranks across 5 levels. A clear path from beginner to top player, 
-                   with real responsibilities and rewards at each step.</p>
-                <div class="ranks-hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">14</span>
-                        <span class="hero-stat-label">Ranks</span>
+                <div class="hero-image">
+                    <div class="hero-glow"></div>
+                    <div class="hero-hologram">
+                        <img src="assets/zenraid_pistol_model.png" alt="ZenRaid Electric Water Blaster" loading="eager">
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">5</span>
-                        <span class="hero-stat-label">Levels</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">∞</span>
-                        <span class="hero-stat-label">Potential</span>
-                    </div>
+                    <div class="hero-scanner"></div>
                 </div>
             </div>
-            <div class="ranks-hero-visual">
-                <div class="rank-pyramid">
-                    <div class="pyramid-tier tier-5-glow">
-                        <span>★★★★★</span>
+            <div class="hero-scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar" aria-label="Key statistics">
+            <div class="stats-container">
+                <div class="stat-item" data-count="3">
+                    <div class="stat-icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
                     </div>
-                    <div class="pyramid-tier tier-4-glow">
-                        <span>★★★★</span>
-                        <span>★★★</span>
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Blaster Models</div>
+                </div>
+                <div class="stat-item" data-count="18">
+                    <div class="stat-icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
                     </div>
-                    <div class="pyramid-tier tier-3-glow">
-                        <span>★★</span>
-                        <span>★★</span>
-                        <span>★★</span>
+                    <div class="stat-number">18m+</div>
+                    <div class="stat-label">Water Range</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                            <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                            <circle cx="12" cy="20" r="1"/>
+                        </svg>
                     </div>
-                    <div class="pyramid-tier tier-2-glow">
-                        <span>★</span>
-                        <span>★</span>
-                        <span>★</span>
-                        <span>★</span>
+                    <div class="stat-number">App</div>
+                    <div class="stat-label">Connected</div>
+                </div>
+                <div class="stat-item" data-count="14">
+                    <div class="stat-icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
                     </div>
-                    <div class="pyramid-tier tier-1-glow">
-                        <span>●</span>
-                        <span>●</span>
-                        <span>●</span>
-                        <span>●</span>
-                        <span>●</span>
-                    </div>
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Player Ranks</div>
                 </div>
             </div>
         </section>
 
-        <!-- All Ranks -->
-        <section class="ranks-full-list">
-            <!-- Tier 5 - Leadership -->
-            <div class="tier-section tier-5" id="tier5">
-                <div class="tier-header-full">
-                    <div class="tier-badge-large">Level 5</div>
-                    <h2>Leadership</h2>
-                    <p>Top-level positions with global or regional responsibility</p>
-                </div>
-
-                <div class="ranks-grid">
-                    <article class="rank-card-full rank-legendary">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
-                            <h3>Supreme Commander</h3>
-                            <span class="rank-subtitle">Top Player / Global Lead</span>
-                            <div class="rank-details">
-                                <div class="rank-detail">
-                                    <span class="detail-label">Scope</span>
-                                    <span class="detail-value">Global</span>
-                                </div>
-                                <div class="rank-detail">
-                                    <span class="detail-label">Role</span>
-                                    <span class="detail-value">Full Authority</span>
-                                </div>
-                            </div>
-                            <ul class="rank-features">
-                                <li>Shape the direction of ZenRaid worldwide</li>
-                                <li>Make key decisions on expansion</li>
-                                <li>Lead the global community</li>
-                                <li>Maximum earning potential</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-legendary">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
-                            <h3>Fleet Admiral</h3>
-                            <span class="rank-subtitle">Regional Director</span>
-                            <div class="rank-details">
-                                <div class="rank-detail">
-                                    <span class="detail-label">Scope</span>
-                                    <span class="detail-value">Regional</span>
-                                </div>
-                                <div class="rank-detail">
-                                    <span class="detail-label">Areas</span>
-                                    <span class="detail-value">Multiple Countries</span>
-                                </div>
-                            </div>
-                            <ul class="rank-features">
-                                <li>Grow ZenRaid in your region</li>
-                                <li>Oversee multiple venues</li>
-                                <li>Build local partnerships</li>
-                                <li>Manage regional finances</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Tier 4 - Veterans -->
-            <div class="tier-section tier-4" id="tier4">
-                <div class="tier-header-full">
-                    <div class="tier-badge-large">Level 4</div>
-                    <h2>Veterans</h2>
-                    <p>Experienced players who run venues and major events</p>
-                </div>
-
-                <div class="ranks-grid ranks-grid-3">
-                    <article class="rank-card-full rank-epic">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large purple">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
-                            <h3>Arena Commander</h3>
-                            <span class="rank-subtitle">Venue Owner</span>
-                            <ul class="rank-features">
-                                <li>Own and run a ZenRaid venue</li>
-                                <li>Hire and train staff</li>
-                                <li>Handle local marketing</li>
-                                <li>Invest in equipment</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-epic">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large purple">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star-half">☆</span>
-                            </div>
-                            <h3>Division Captain</h3>
-                            <span class="rank-subtitle">Multi-Venue Manager</span>
-                            <ul class="rank-features">
-                                <li>Manage several venues</li>
-                                <li>Coordinate between locations</li>
-                                <li>Improve performance across sites</li>
-                                <li>Organize cross-venue events</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-epic">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large purple">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
-                            <h3>Strike Commander</h3>
-                            <span class="rank-subtitle">Event Director</span>
-                            <ul class="rank-features">
-                                <li>Organize tournaments</li>
-                                <li>Manage prize pools</li>
-                                <li>Build the competitive scene</li>
-                                <li>Handle event broadcasting</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Tier 3 - Experienced -->
-            <div class="tier-section tier-3" id="tier3">
-                <div class="tier-header-full">
-                    <div class="tier-badge-large">Level 3</div>
-                    <h2>Experienced</h2>
-                    <p>Skilled players who lead games and teams</p>
-                </div>
-
-                <div class="ranks-grid ranks-grid-3">
-                    <article class="rank-card-full rank-rare">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large blue">
-                                <span class="star">★</span>
-                                <span class="star-half">☆</span>
-                                <span class="star-half">☆</span>
-                            </div>
-                            <h3>Raid Marshal</h3>
-                            <span class="rank-subtitle">Game Referee</span>
-                            <ul class="rank-features">
-                                <li>Run game sessions</li>
-                                <li>Enforce rules fairly</li>
-                                <li>Keep players happy</li>
-                                <li>Ensure safety</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-rare">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large blue">
-                                <span class="diamond">◆</span>
-                                <span class="diamond">◆</span>
-                                <span class="diamond">◆</span>
-                            </div>
-                            <h3>Hydro Lieutenant</h3>
-                            <span class="rank-subtitle">Team Captain</span>
-                            <ul class="rank-features">
-                                <li>Lead your team</li>
-                                <li>Plan strategy</li>
-                                <li>Coach newer players</li>
-                                <li>Represent in competitions</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-rare">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large blue">
-                                <span class="diamond">◆</span>
-                                <span class="diamond">◆</span>
-                            </div>
-                            <h3>Splash Sergeant</h3>
-                            <span class="rank-subtitle">Squad Leader</span>
-                            <ul class="rank-features">
-                                <li>Lead small groups</li>
-                                <li>Coordinate during games</li>
-                                <li>Help teammates improve</li>
-                                <li>Show leadership potential</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Tier 2 - Developing -->
-            <div class="tier-section tier-2" id="tier2">
-                <div class="tier-header-full">
-                    <div class="tier-badge-large">Level 2</div>
-                    <h2>Developing</h2>
-                    <p>Growing players building their skills</p>
-                </div>
-
-                <div class="ranks-grid ranks-grid-4">
-                    <article class="rank-card-full rank-uncommon">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large green">
-                                <span class="diamond">◆</span>
-                            </div>
-                            <h3>Wave Corporal</h3>
-                            <span class="rank-subtitle">Skilled Player</span>
-                            <ul class="rank-features compact">
-                                <li>Good game sense</li>
-                                <li>Reliable team member</li>
-                                <li>50+ games played</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-uncommon">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large green">
-                                <span class="chevron">▲</span>
-                                <span class="chevron">▲</span>
-                            </div>
-                            <h3>Aqua Specialist</h3>
-                            <span class="rank-subtitle">Improving Player</span>
-                            <ul class="rank-features compact">
-                                <li>Developing skills</li>
-                                <li>Active participant</li>
-                                <li>25+ games played</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-uncommon">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large green">
-                                <span class="chevron">▲</span>
-                            </div>
-                            <h3>Tide Runner</h3>
-                            <span class="rank-subtitle">Regular Player</span>
-                            <ul class="rank-features compact">
-                                <li>Knows the basics well</li>
-                                <li>Consistent attendance</li>
-                                <li>15+ games played</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-uncommon">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large green">
-                                <span class="bar">━</span>
-                                <span class="bar">━</span>
-                            </div>
-                            <h3>Splash Scout</h3>
-                            <span class="rank-subtitle">Learning Player</span>
-                            <ul class="rank-features compact">
-                                <li>Understanding game flow</li>
-                                <li>Building teamwork</li>
-                                <li>10+ games played</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Tier 1 - Entry -->
-            <div class="tier-section tier-1" id="tier1">
-                <div class="tier-header-full">
-                    <div class="tier-badge-large">Level 1</div>
-                    <h2>Entry</h2>
-                    <p>Starting your ZenRaid journey</p>
-                </div>
-
-                <div class="ranks-grid ranks-grid-3">
-                    <article class="rank-card-full rank-common">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large gray">
-                                <span class="bar">━</span>
-                                <span class="bar">━</span>
-                                <span class="bar">━</span>
-                            </div>
-                            <h3>Droplet Private</h3>
-                            <span class="rank-subtitle">New Participant</span>
-                            <ul class="rank-features compact">
-                                <li>Getting comfortable</li>
-                                <li>Learning equipment</li>
-                                <li>Playing your first games</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-common">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large gray">
-                                <span class="bar">━</span>
-                                <span class="bar">━</span>
-                            </div>
-                            <h3>Splash Recruit</h3>
-                            <span class="rank-subtitle">Trainee</span>
-                            <ul class="rank-features compact">
-                                <li>Learning the basics</li>
-                                <li>Getting to know the gear</li>
-                                <li>5+ games completed</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="rank-card-full rank-common">
-                        <div class="rank-card-content">
-                            <div class="rank-insignia-large gray">
-                                <span class="bar">━</span>
-                            </div>
-                            <h3>ZenRaider</h3>
-                            <span class="rank-subtitle">New Player</span>
-                            <ul class="rank-features compact">
-                                <li>Where everyone starts</li>
-                                <li>First game played</li>
-                                <li>Your journey begins here</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section class="ranks-benefits">
+        <!-- Products Section -->
+        <section id="products" class="section" aria-labelledby="products-title">
             <div class="section-container">
                 <header class="section-header">
-                    <span class="section-tag">Why It Works</span>
-                    <h2 class="section-title">Clear Goals, Real Rewards</h2>
+                    <span class="section-tag">Products</span>
+                    <h2 class="section-title" id="products-title">What's in the Box</h2>
+                    <p class="section-subtitle">Everything you need for team-based water battles with automatic scoring.</p>
                 </header>
 
-                <div class="benefits-grid">
-                    <div class="benefit-card-large">
-                        <div class="benefit-icon-large">🎯</div>
-                        <h3>Know What's Next</h3>
-                        <p>Every rank has clear requirements. You always know what you need to do to advance, 
-                           which keeps things motivating.</p>
+                <div class="products-grid">
+                    <article class="product-card" data-tilt>
+                        <div class="product-card-inner">
+                            <div class="product-image">
+                                <img src="assets/zenraid_SMG_model.png" alt="ZenRaid SMG Blaster" loading="lazy">
+                                <div class="product-shine"></div>
+                            </div>
+                            <span class="product-tag">Main Blaster</span>
+                            <h3 class="product-name">SMG Blaster</h3>
+                            <p class="product-description">Electric water blaster with a hidden tank inside. 
+                                Charges via USB, shows remaining water on a small display.</p>
+                            <ul class="product-specs">
+                                <li><span>Range:</span> 18m+</li>
+                                <li><span>Tank:</span> 500ml</li>
+                                <li><span>Battery:</span> 4hrs</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-tilt>
+                        <div class="product-card-inner">
+                            <div class="product-image">
+                                <img src="assets/zenraid_pistol_model.png" alt="ZenRaid Pistol" loading="lazy">
+                                <div class="product-shine"></div>
+                            </div>
+                            <span class="product-tag">Backup</span>
+                            <h3 class="product-name">Pistol</h3>
+                            <p class="product-description">Compact and quick. Good for close range and fast moves.</p>
+                            <ul class="product-specs">
+                                <li><span>Range:</span> 12m</li>
+                                <li><span>Tank:</span> 200ml</li>
+                                <li><span>Weight:</span> Light</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-tilt>
+                        <div class="product-card-inner">
+                            <div class="product-image">
+                                <img src="assets/zenraid_smart_vest_and_wristband.png" alt="ZenRaid Smart Vest"
+                                    loading="lazy">
+                                <div class="product-shine"></div>
+                            </div>
+                            <span class="product-tag">Smart Gear</span>
+                            <h3 class="product-name">Vest & Wristband</h3>
+                            <p class="product-description">Vest detects water hits and lights up. 
+                                Wristband vibrates so you know even if you didn't see it.</p>
+                            <ul class="product-specs">
+                                <li><span>Sensors:</span> 8 zones</li>
+                                <li><span>Battery:</span> 8hrs</li>
+                                <li><span>Connect:</span> Bluetooth</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section section-dark" aria-labelledby="features-title">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-tag">Features</span>
+                    <h2 class="section-title" id="features-title">What Makes It Different</h2>
+                    <p class="section-subtitle">Not just water guns. A complete system for organized outdoor play.</p>
+                </header>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        </div>
+                        <h3>Electric Power</h3>
+                        <p>No pumping needed. USB-rechargeable motors shoot water up to 18 meters with consistent power.</p>
                     </div>
-                    <div class="benefit-card-large">
-                        <div class="benefit-icon-large">💰</div>
-                        <h3>Earn Along the Way</h3>
-                        <p>Higher ranks unlock real earning opportunities—from equipment rentals to venue ownership. 
-                           Your progress pays off.</p>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                        </div>
+                        <h3>Automatic Hit Tracking</h3>
+                        <p>Vest sensors detect water instantly. LEDs show where you got hit, wristband vibrates to alert you.</p>
                     </div>
-                    <div class="benefit-card-large">
-                        <div class="benefit-icon-large">🏆</div>
-                        <h3>Something to Aim For</h3>
-                        <p>The rank system creates a sense of achievement and status. 
-                           People come back because they want to climb higher.</p>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3>Team Play</h3>
+                        <p>Split into teams, pick roles with game cards, and compete to reach 50 points first.</p>
                     </div>
-                    <div class="benefit-card-large">
-                        <div class="benefit-icon-large">🚀</div>
-                        <h3>Grows With Us</h3>
-                        <p>As the community expands, natural leaders emerge. 
-                           The system scales without needing micromanagement.</p>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3>App Scoring</h3>
+                        <p>Mobile app shows live scores, player stats, team standings, and game history.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3>Safe for Everyone</h3>
+                        <p>Designed for ages 8+. Safety locks prevent accidents. All the fun without bruises or mess.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <h3>Looks Good</h3>
+                        <p>Modern design that doesn't look like a toy. Something you won't mind having around.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="ranks-cta">
-            <div class="cta-content">
-                <h2>Start at Level 1</h2>
-                <p>Everyone starts as a ZenRaider. Where you go from there is up to you.</p>
-                <div class="cta-buttons">
-                    <a href="/#newsletter" class="btn-primary btn-large">
-                        Sign Up for Updates
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                    <a href="/" class="btn-secondary">
-                        Back to Home
-                    </a>
+        <!-- How to Play Section -->
+        <section id="gameplay" class="section" aria-labelledby="gameplay-title">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-tag">How It Works</span>
+                    <h2 class="section-title" id="gameplay-title">How to Play</h2>
+                    <p class="section-subtitle">Simple rules, quick setup, hours of fun.</p>
+                </header>
+
+                <div class="gameplay-timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="gameplay-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <div class="step-icon">⚡</div>
+                            <h3>Get Ready</h3>
+                            <p>Grab your blaster, put on your vest, and sync your wristband. Make sure everything's charged.</p>
+                        </div>
+                    </div>
+
+                    <div class="gameplay-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <div class="step-icon">🎴</div>
+                            <h3>Pick Your Role</h3>
+                            <p>Draw a card from the game deck. Each role has different goals and abilities.</p>
+                        </div>
+                    </div>
+
+                    <div class="gameplay-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <div class="step-icon">💥</div>
+                            <h3>Play to 50 Points</h3>
+                            <p>Score points by hitting opponents and completing missions. If you get hit, wait 30 seconds at respawn.</p>
+                        </div>
+                    </div>
+
+                    <div class="gameplay-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <div class="step-icon">🏆</div>
+                            <h3>Win</h3>
+                            <p>First team to 50 wins. Check the app for stats, then play again.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranks Section -->
+        <section id="ranks" class="section section-ranks" aria-labelledby="ranks-title">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-tag">Progression</span>
+                    <h2 class="section-title" id="ranks-title">Player Ranks</h2>
+                    <p class="section-subtitle">14 ranks across 5 levels. Start as a beginner, work your way up.</p>
+                </header>
+
+                <div class="ranks-showcase">
+                    <!-- Tier 5 - Executive -->
+                    <div class="rank-tier tier-5">
+                        <div class="tier-header">
+                            <span class="tier-badge">Level 5</span>
+                            <h3 class="tier-name">Leadership</h3>
+                        </div>
+                        <div class="tier-ranks">
+                            <div class="rank-card rank-supreme">
+                                <div class="rank-glow"></div>
+                                <div class="rank-insignia">★★★★★</div>
+                                <h4>Supreme Commander</h4>
+                                <p>Top Player</p>
+                            </div>
+                            <div class="rank-card rank-fleet">
+                                <div class="rank-glow"></div>
+                                <div class="rank-insignia">★★★★</div>
+                                <h4>Fleet Admiral</h4>
+                                <p>Regional Leader</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tier 4 - Senior -->
+                    <div class="rank-tier tier-4">
+                        <div class="tier-header">
+                            <span class="tier-badge">Level 4</span>
+                            <h3 class="tier-name">Veterans</h3>
+                        </div>
+                        <div class="tier-ranks">
+                            <div class="rank-card">
+                                <div class="rank-insignia">★★★</div>
+                                <h4>Arena Commander</h4>
+                                <p>Venue Manager</p>
+                            </div>
+                            <div class="rank-card">
+                                <div class="rank-insignia">★★☆</div>
+                                <h4>Division Captain</h4>
+                                <p>Team Organizer</p>
+                            </div>
+                            <div class="rank-card">
+                                <div class="rank-insignia">★★</div>
+                                <h4>Strike Commander</h4>
+                                <p>Event Host</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tier 3 - Mid -->
+                    <div class="rank-tier tier-3">
+                        <div class="tier-header">
+                            <span class="tier-badge">Level 3</span>
+                            <h3 class="tier-name">Experienced</h3>
+                        </div>
+                        <div class="tier-ranks">
+                            <div class="rank-card">
+                                <div class="rank-insignia">★☆☆</div>
+                                <h4>Raid Marshal</h4>
+                                <p>Game Referee</p>
+                            </div>
+                            <div class="rank-card">
+                                <div class="rank-insignia">◆◆◆</div>
+                                <h4>Hydro Lieutenant</h4>
+                                <p>Team Captain</p>
+                            </div>
+                            <div class="rank-card">
+                                <div class="rank-insignia">◆◆</div>
+                                <h4>Splash Sergeant</h4>
+                                <p>Squad Leader</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More ranks indicator -->
+                    <div class="ranks-more">
+                        <a href="ranks.html" class="btn-primary">
+                            See All 14 Ranks
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <p class="ranks-more-text">+ 5 more ranks for beginners</p>
+                    </div>
+                </div>
+
+                <!-- Rank Benefits -->
+                <div class="rank-benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h4>Clear Goals</h4>
+                        <p>Every rank has specific requirements to advance.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h4>Earn Along the Way</h4>
+                        <p>Higher ranks unlock opportunities to earn money.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏆</div>
+                        <h4>Community</h4>
+                        <p>Structured play keeps people coming back.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section section-dark" aria-labelledby="team-title">
+            <div class="section-container">
+                <div class="team-content">
+                    <div class="team-image">
+                        <img src="assets/zenraid_team.png" alt="ZenRaid Team" loading="lazy">
+                        <div class="team-image-frame"></div>
+                    </div>
+                    <div class="team-text">
+                        <span class="section-tag">About Us</span>
+                        <h2 id="team-title">Getting People Outside</h2>
+                        <p>We're building ZenRaid because we think outdoor play should be as fun as video games. 
+                           Real competition, real movement, real fun—with the scoring and stats that make it exciting.</p>
+                        <p>When screens are everywhere, we wanted to make something that gets families and friends 
+                           running around outside together.</p>
+                        <ul class="team-highlights">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                Fun for kids, teens, and adults
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                Works in backyards, parks, or dedicated venues
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                Scales from casual games to organized leagues
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                Like paintball, but with water and no pain
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="section section-newsletter" aria-labelledby="newsletter-title">
+            <div class="newsletter-bg">
+                <div class="newsletter-particles"></div>
+            </div>
+            <div class="section-container">
+                <div class="newsletter-container">
+                    <span class="section-tag">Stay Updated</span>
+                    <h2 id="newsletter-title">Get Early Access</h2>
+                    <p>Sign up to hear when our <strong>Kickstarter launches in 2026</strong>. 
+                       Early supporters get special pricing.</p>
+                    <form class="newsletter-form" id="newsletterForm" novalidate>
+                        <div class="form-group">
+                            <input type="email" name="email" id="emailInput" placeholder="Your email address"
+                                required autocomplete="email" aria-describedby="formFeedback">
+                            <button type="submit" id="submitBtn">
+                                <span class="btn-text">Sign Up</span>
+                                <span class="btn-loading">
+                                    <svg viewBox="0 0 24 24" class="spinner">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"
+                                            fill="none" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                        <p class="newsletter-note" id="formFeedback">We won't spam you. Unsubscribe anytime.</p>
+                    </form>
+                    <div class="newsletter-stats">
+                        <div class="newsletter-stat">
+                            <span class="stat-value" id="subscriberCount">0</span>
+                            <span class="stat-desc">People Signed Up</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -534,21 +611,25 @@
                     </a>
                     <p>Electric water blasters with smart scoring. Real outdoor fun for everyone.</p>
                     <div class="social-links">
-                        <a href="https://instagram.com/zenraid" aria-label="Instagram">
+                        <a href="https://instagram.com/zenraid" aria-label="Instagram" rel="noopener noreferrer"
+                            target="_blank">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <rect x="2" y="2" width="20" height="20" rx="5" />
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                             </svg>
                         </a>
-                        <a href="https://twitter.com/zenraid" aria-label="Twitter">
+                        <a href="https://twitter.com/zenraid" aria-label="Twitter" rel="noopener noreferrer"
+                            target="_blank">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
                                     d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                             </svg>
                         </a>
-                        <a href="https://youtube.com/@zenraid" aria-label="YouTube">
+                        <a href="https://youtube.com/@zenraid" aria-label="YouTube" rel="noopener noreferrer"
+                            target="_blank">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
@@ -556,29 +637,37 @@
                                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48" fill="currentColor" />
                             </svg>
                         </a>
+                        <a href="https://tiktok.com/@zenraid" aria-label="TikTok" rel="noopener noreferrer"
+                            target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <nav class="footer-column">
+                <nav class="footer-column" aria-label="Products">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="/#products">Blasters</a></li>
-                        <li><a href="/#products">Smart Vest</a></li>
-                        <li><a href="/#products">Mobile App</a></li>
+                        <li><a href="#products">Blasters</a></li>
+                        <li><a href="#products">Smart Vest</a></li>
+                        <li><a href="#products">Wristband</a></li>
+                        <li><a href="#products">Mobile App</a></li>
                     </ul>
                 </nav>
 
-                <nav class="footer-column">
+                <nav class="footer-column" aria-label="Company">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="/#team">About Us</a></li>
-                        <li><a href="/ranks.html">Rank System</a></li>
-                        <li><a href="/#newsletter">Contact</a></li>
+                        <li><a href="#team">About Us</a></li>
+                        <li><a href="ranks.html">Rank System</a></li>
+                        <li><a href="#newsletter">Contact</a></li>
                     </ul>
                 </nav>
 
-                <nav class="footer-column">
-                    <h4>Contact</h4>
+                <nav class="footer-column" aria-label="Legal">
+                    <h4>Legal</h4>
                     <ul>
                         <li><a href="mailto:founder@zenraid.com">founder@zenraid.com</a></li>
                     </ul>
@@ -586,7 +675,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 ZenRaid OÜ. All rights reserved.</p>
+                <p>&copy; 2026 ZenRaid. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -594,3 +683,4 @@
     <!-- Scroll to Top -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="18 1

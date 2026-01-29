@@ -430,17 +430,17 @@
         };
         
         rankCards.forEach(card => {
-            // Find which tier this card belongs to by checking parent .tier-section
+            // Find which tier this card belongs to by checking parent elements
             let tierNumber = 1; // Default
             
-            // Look for parent with tier-section class
+            // Look for parent with tier-section OR rank-tier class (both used in different pages)
             let parent = card.parentElement;
-            while (parent && !parent.classList.contains('tier-section')) {
+            while (parent && !parent.classList.contains('tier-section') && !parent.classList.contains('rank-tier')) {
                 parent = parent.parentElement;
             }
             
-            // If we found a tier-section, check which tier it is
-            if (parent && parent.classList.contains('tier-section')) {
+            // If we found a tier container, check which tier it is
+            if (parent && (parent.classList.contains('tier-section') || parent.classList.contains('rank-tier'))) {
                 for (let i = 5; i >= 1; i--) {
                     if (parent.classList.contains(`tier-${i}`)) {
                         tierNumber = i;
@@ -449,7 +449,7 @@
                 }
             }
             
-            // Fallback: check the card's own parent tier-* classes
+            // Fallback: check any parent with tier-* class
             if (tierNumber === 1) {
                 parent = card.parentElement;
                 while (parent) {

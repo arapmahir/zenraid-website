@@ -651,6 +651,21 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* SVG icon styling for stats bar (replaces emojis for professional look) */
+.stat-icon-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.stat-icon-svg svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--primary);
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
 .stat-number {
     font-family: var(--font-display);
     font-size: 2.5rem;

@@ -174,18 +174,22 @@
                 
                 const data = await response.json();
                 
-                if (data.success) {
-                    showFeedback('🎉 ' + (data.message || "You're on the list! Watch your inbox for updates."), 'success');
+                if (response.ok && data.success) {
+                    // New subscription
+                    showFeedback("🎉 You're on the list! Watch your inbox for updates.", 'success');
                     emailInput.value = '';
-                    updateSubscriberCount();
+                    if (data.count !== undefined) {
+                        animateCounter(document.getElementById('subscriberCount'), data.count);
+                    }
+                } else if (response.status === 409) {
+                    // Already subscribed
+                    showFeedback('📧 You\'re already on the list!', 'info');
                 } else {
-                    showFeedback('⚠️ ' + (data.message || 'Something went wrong. Please try again.'), 'error');
+                    showFeedback('⚠️ ' + (data.error || 'Something went wrong. Please try again.'), 'error');
                 }
             } catch (error) {
-                // Fallback for when API is not available (static testing)
-                console.log('API not available, showing success message');
-                showFeedback("🎉 You're on the list! Watch your inbox for updates.", 'success');
-                emailInput.value = '';
+                console.log('API error:', error);
+                showFeedback('⚠️ Something went wrong. Please try again.', 'error');
             }
             
             setLoading(false);
@@ -216,17 +220,18 @@
         if (!countElement) return;
         
         try {
-            const response = await fetch('/api/subscribers/count');
+            const response = await fetch('/api/subscribe');
             const data = await response.json();
             if (data.count !== undefined) {
                 animateCounter(countElement, data.count);
             }
         } catch (error) {
-            // Fallback: just increment the displayed number
-            const currentCount = parseInt(countElement.textContent) || 0;
-            animateCounter(countElement, currentCount + 1);
+            console.log('Count fetch error:', error);
         }
     }
+    
+    // Load subscriber count on page load
+    updateSubscriberCount();
     
     function animateCounter(element, target) {
         const start = parseInt(element.textContent) || 0;
